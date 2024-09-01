@@ -91,23 +91,28 @@ public class CreateInventory {
 
 
             if (item == null) {
+                ContainerMain.logger.warn("An item that was added to a player inventory was null");
                 return;
             }
 
             ContainerItemCount itemCount = item.getCount();
             if (itemCount == null) {
+                ContainerMain.logger.warn("item count null");
                 return;
             }
             ContainerItemDisplay itemDisplay = item.getDisplay();
             if (itemDisplay == null) {
+                ContainerMain.logger.warn("item display null");
                 return;
             }
             ContainerItemSkin itemSkin = item.getSkin();
             if (itemSkin == null) {
+                ContainerMain.logger.warn("item skin null");
                 return;
             }
             ContainerItemData itemData = item.getData();
             if (itemData == null) {
+                ContainerMain.logger.warn("item data null");
                 return;
             }
 
@@ -127,7 +132,7 @@ public class CreateInventory {
                     .texture(itemSkin.getTexture())
                     .build();
 
-            ContainerMain.logger.debug(containerItem.toString());
+            ContainerMain.logger.debug(containerItem.toString() + " this i done in hotbar");
             inventory.setItemStack(slot, containerItem);
         }
 
