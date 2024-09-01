@@ -27,6 +27,9 @@ public class ContainerItemData {
     }
 
     public Boolean isVanillaItem() {
+        if (isVanillaItem == null) {
+            return true;
+        }
         return isVanillaItem;
     }
 

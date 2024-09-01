@@ -1,5 +1,6 @@
 package com.github.sniconmc.container.utils;
 
+import com.github.sniconmc.container.ContainerMain;
 import com.github.sniconmc.container.config.*;
 import com.github.sniconmc.utils.inventory.InventoryUtils;
 import com.github.sniconmc.utils.item.ItemStackBuilder;
@@ -77,7 +78,7 @@ public class CreateInventory {
                     .uuid(itemSkin.getUuid())
                     .texture(itemSkin.getTexture())
                     .build();
-
+            ContainerMain.logger.debug(containerItem.toString());
             inventory.setItemStack(slot, containerItem);
         }
 
@@ -126,6 +127,7 @@ public class CreateInventory {
                     .texture(itemSkin.getTexture())
                     .build();
 
+            ContainerMain.logger.debug(containerItem.toString());
             inventory.setItemStack(slot, containerItem);
         }
 
