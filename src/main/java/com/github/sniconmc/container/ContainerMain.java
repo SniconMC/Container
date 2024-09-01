@@ -9,7 +9,7 @@ public class ContainerMain {
 
     public static final Logger logger = LoggerFactory.getLogger(ContainerMain.class);
 
-    public static void main(String[] args) {
+    public static void init() {
         logger.info("Container initialized");
 
         ContainerManager containerManager = new ContainerManager();
