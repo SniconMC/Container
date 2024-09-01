@@ -92,28 +92,28 @@ public class CreateInventory {
 
             if (item == null) {
                 ContainerMain.logger.warn("An item that was added to a player inventory was null");
-                return;
+                continue;
             }
 
             ContainerItemCount itemCount = item.getCount();
             if (itemCount == null) {
                 ContainerMain.logger.warn("item count null");
-                return;
+                continue;
             }
             ContainerItemDisplay itemDisplay = item.getDisplay();
             if (itemDisplay == null) {
                 ContainerMain.logger.warn("item display null");
-                return;
+                continue;
             }
             ContainerItemSkin itemSkin = item.getSkin();
             if (itemSkin == null) {
                 ContainerMain.logger.warn("item skin null");
-                return;
+                continue;
             }
             ContainerItemData itemData = item.getData();
             if (itemData == null) {
                 ContainerMain.logger.warn("item data null");
-                return;
+                continue;
             }
 
             ItemStack containerItem = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
