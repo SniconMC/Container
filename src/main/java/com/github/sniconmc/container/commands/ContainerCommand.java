@@ -29,7 +29,7 @@ public class ContainerCommand extends Command {
             }
 
             String actionString = commandContext.get(reloadArgument).toString();
-            String nameString = commandContext.get(containerArgument).toString();
+            String nameString = commandContext.get(containerArgument);
             switch (actionString.toLowerCase()) {
                 case "set", "s" -> {
                     HotbarCreator.setHotbar(player, nameString);

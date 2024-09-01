@@ -69,7 +69,6 @@ public class CreateInventory {
                     .uuid(itemSkin.getUuid())
                     .texture(itemSkin.getTexture())
                     .build();
-            ContainerMain.logger.debug(containerItem.toString());
             inventory.setItemStack(slot, containerItem);
         }
     }
@@ -79,7 +78,6 @@ public class CreateInventory {
             ContainerItem item = items.get(slot);
 
             if (item == null) {
-                ContainerMain.logger.warn("An item that was added to a player inventory was null");
                 continue;
             }
 
@@ -120,8 +118,7 @@ public class CreateInventory {
                     .uuid(itemSkin.getUuid())
                     .texture(itemSkin.getTexture())
                     .build();
-
-            ContainerMain.logger.debug(containerItem.toString() + " this is done in hotbar");
+            
             inventory.setItemStack(slot, containerItem);
         }
     }
