@@ -19,13 +19,7 @@ import java.util.Map;
 
 public class CreateInventory {
 
-
-    private static Player playerInUse = null;
-
-    public static Inventory build(ContainerConfig config, Player player){
-
-        playerInUse = player;
-
+    public static Inventory build(ContainerConfig config, Player player) {
         ContainerInventorySettings inventorySettings = config.getInventorySettings();
 
         Component displayName = TextUtils.convertStringToComponent(inventorySettings.getDisplayName());
@@ -36,15 +30,12 @@ public class CreateInventory {
 
         Map<Integer, ContainerItem> nonDefaultItems = getNonDefaultItems(config.getItems());
 
-        addItemsToInventoryWithDefault(inventory, inventorySize, nonDefaultItems, config.getDefault_item());
-
+        addItemsToInventoryWithDefault(inventory, inventorySize, nonDefaultItems, config.getDefault_item(), player);
 
         return inventory;
     }
 
-
-    public static void addItemsToInventoryWithDefault(Inventory inventory, Integer inventorySize, Map<Integer, ContainerItem> items, ContainerItem defaultItem) {
-
+    public static void addItemsToInventoryWithDefault(Inventory inventory, Integer inventorySize, Map<Integer, ContainerItem> items, ContainerItem defaultItem, Player player) {
         for (int slot = 0; slot < inventorySize; slot++) {
             ContainerItem nonDefaultItem = items.get(slot);
 
@@ -59,11 +50,11 @@ public class CreateInventory {
                 itemCount = item.getCount();
                 itemDisplay = item.getDisplay();
                 itemSkin = item.getSkin();
-                 itemData = item.getData();
+                itemData = item.getData();
             }
 
-
-            ItemStack containerItem = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
+            ItemStack containerItem = new ItemStackBuilder()
+                    .material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
                     .count(itemCount.getCurrent())
                     .maxStackSize(itemCount.getMax())
                     .name(TextUtils.convertStringToComponent(itemDisplay.getName()))
@@ -74,21 +65,18 @@ public class CreateInventory {
                     .isVanillaItem(itemData.isVanillaItem())
                     .function(itemData.getFunction())
                     .page(itemData.getPage())
-                    .playerSkull(itemSkin.getPlayer(), playerInUse)
+                    .playerSkull(itemSkin.getPlayer(), player)
                     .uuid(itemSkin.getUuid())
                     .texture(itemSkin.getTexture())
                     .build();
             ContainerMain.logger.debug(containerItem.toString());
             inventory.setItemStack(slot, containerItem);
         }
-
     }
 
-    public static void addItemsToPlayerInventory(PlayerInventory inventory, Integer inventorySize, Map<Integer, ContainerItem> items) {
-
+    public static void addItemsToPlayerInventory(PlayerInventory inventory, Integer inventorySize, Map<Integer, ContainerItem> items, Player player) {
         for (int slot = 0; slot < inventorySize; slot++) {
             ContainerItem item = items.get(slot);
-
 
             if (item == null) {
                 ContainerMain.logger.warn("An item that was added to a player inventory was null");
@@ -116,7 +104,8 @@ public class CreateInventory {
                 continue;
             }
 
-            ItemStack containerItem = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
+            ItemStack containerItem = new ItemStackBuilder()
+                    .material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
                     .count(itemCount.getCurrent())
                     .maxStackSize(itemCount.getMax())
                     .name(TextUtils.convertStringToComponent(itemDisplay.getName()))
@@ -127,15 +116,14 @@ public class CreateInventory {
                     .isVanillaItem(itemData.isVanillaItem())
                     .function(itemData.getFunction())
                     .page(itemData.getPage())
-                    .playerSkull(itemSkin.getPlayer(), playerInUse)
+                    .playerSkull(itemSkin.getPlayer(), player)
                     .uuid(itemSkin.getUuid())
                     .texture(itemSkin.getTexture())
                     .build();
 
-            ContainerMain.logger.debug(containerItem.toString() + " this i done in hotbar");
+            ContainerMain.logger.debug(containerItem.toString() + " this is done in hotbar");
             inventory.setItemStack(slot, containerItem);
         }
-
     }
 
     public static Map<Integer, ContainerItem> getNonDefaultItems(List<ContainerItem> items) {
@@ -145,5 +133,4 @@ public class CreateInventory {
         }
         return itemMap;
     }
-
 }

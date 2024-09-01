@@ -36,8 +36,8 @@ public class HotbarCreator {
             // Get player inventory
             PlayerInventory inventory = player.getInventory();
 
-            CreateInventory.addItemsToPlayerInventory(inventory, inventory.getInnerSize(), CreateInventory.getNonDefaultItems(config.getItems()));
-
+            CreateInventory.addItemsToPlayerInventory(inventory, inventory.getInnerSize(), CreateInventory.getNonDefaultItems(config.getItems()), player);
+            
             currentHotbar.put(player, hotbarName);
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors

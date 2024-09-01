@@ -4,12 +4,12 @@ public class ContainerItemData {
 
     private String function;
     private String page;
-    private Boolean isVanillaItem;
+    private Boolean is_vanilla_item;
 
-    public ContainerItemData(String function, String page, Boolean isVanillaItem) {
+    public ContainerItemData(String function, String page, Boolean is_vanilla_item) {
         this.function = function;
         this.page = page;
-        this.isVanillaItem = isVanillaItem;
+        this.is_vanilla_item = is_vanilla_item;
     }
 
     public String getFunction() {
@@ -27,10 +27,10 @@ public class ContainerItemData {
     }
 
     public Boolean isVanillaItem() {
-        if (isVanillaItem == null) {
-            return true;
+        if (is_vanilla_item == null) {
+            return false;
         }
-        return isVanillaItem;
+        return is_vanilla_item;
     }
 
     public void setFunction(String function) {
@@ -42,6 +42,6 @@ public class ContainerItemData {
     }
 
     public void setVanillaItem(Boolean vanillaItem) {
-        isVanillaItem = vanillaItem;
+        is_vanilla_item = vanillaItem;
     }
 }
