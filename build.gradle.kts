@@ -5,7 +5,7 @@ plugins {
 
 group = "com.github.sniconmc.container"
 version = "0.1-dev"
-description = "Hotbar and GUI dependency for the SniconMC server network"
+description = "Hotbar and GUI dependency for the SniconMC Network"
 
 repositories {
     mavenCentral()
@@ -41,9 +41,9 @@ publishing {
             from(components["java"])
 
             pom {
-                name = "Minestom-Container"
+                name = "Container"
                 description = project.description
-                url = "https://github.com/SniconMC/Minestom-Container"
+                url = "https://github.com/SniconMC/Container"
                 licenses {
                     license {
                         name = "The GNU Affero General Public License Version 3"

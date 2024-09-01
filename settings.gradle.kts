@@ -1,2 +1,2 @@
-rootProject.name = "Minestom-Container"
+rootProject.name = "Container"
 
