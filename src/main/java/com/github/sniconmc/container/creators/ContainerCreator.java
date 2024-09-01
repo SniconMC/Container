@@ -43,7 +43,7 @@ public class ContainerCreator {
             ContainerMain.logger.error("Error parsing JSON in: {}", containerName);
         } catch (Exception e) {
             // Handle any other unexpected exceptions
-            ContainerMain.logger.error("Unexpected error in: {}", containerName);
+            ContainerMain.logger.error("Unexpected error in: {}, {}", containerName,  e.toString());
         }
 
     }

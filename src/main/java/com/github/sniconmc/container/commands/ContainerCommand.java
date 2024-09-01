@@ -13,7 +13,7 @@ import java.util.List;
 public class ContainerCommand extends Command {
 
     public ContainerCommand() {
-        super("container", "c");
+        super("container");
 
         setDefaultExecutor((commandSender, commandContext) -> {
             commandSender.sendMessage("Nub!");

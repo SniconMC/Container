@@ -12,11 +12,12 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.Inventory;
 import net.minestom.server.inventory.PlayerInventory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class HotbarCreator {
 
-    public static Map<Player, String> currentHotbar;
+    public static Map<Player, String> currentHotbar = new HashMap<>();
 
     public static void setHotbar(Player player, String hotbarName) {
         Map<String, String> data = ContainerManager.getDataFileJSONData();
