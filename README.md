@@ -1,2 +1,2 @@
 # Minestom-Container
-Container dependency for the SniconMC Network
+Hotbar and GUI dependency for the SniconMC Network
