@@ -94,9 +94,21 @@ public class CreateInventory {
             }
 
             ContainerItemCount itemCount = item.getCount();
+            if (itemCount == null) {
+                return;
+            }
             ContainerItemDisplay itemDisplay = item.getDisplay();
+            if (itemDisplay == null) {
+                return;
+            }
             ContainerItemSkin itemSkin = item.getSkin();
+            if (itemSkin == null) {
+                return;
+            }
             ContainerItemData itemData = item.getData();
+            if (itemData == null) {
+                return;
+            }
 
             ItemStack containerItem = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
                     .count(itemCount.getCurrent())

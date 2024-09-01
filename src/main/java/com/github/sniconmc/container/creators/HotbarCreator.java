@@ -43,7 +43,7 @@ public class HotbarCreator {
             ContainerMain.logger.error("Error parsing JSON in: {}", hotbarName);
         } catch (Exception e) {
             // Handle any other unexpected exceptions
-            ContainerMain.logger.error("Unexpected error in: {}", hotbarName);
+            ContainerMain.logger.error("Unexpected error in: {}, {}", hotbarName,  e.toString());
         }
 
     }
