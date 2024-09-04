@@ -33,8 +33,9 @@ public class ContainerManager {
 
     public static void reloadContainers() {
         dataFileJSONData = new LoadContainer().load(dataFolder);
-
-        ReloadContainer.reloadCurrentContainers();
+        for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
+            ReloadContainer.reloadCurrentContainers(player);
+        }
     }
 
     public static Map<String, String> getDataFileJSONData(){

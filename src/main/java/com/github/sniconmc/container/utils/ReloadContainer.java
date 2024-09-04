@@ -8,20 +8,20 @@ import net.minestom.server.entity.Player;
 
 public class ReloadContainer {
 
-    public static void reloadCurrentContainers(){
+    public static void reloadCurrentContainers(Player player){
 
-        for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
 
-            String currentHotbar = HotbarCreator.currentHotbar.get(player);
-            if (currentHotbar != null) {
-                HotbarCreator.setHotbar(player, currentHotbar);
-            }
 
-            ContainerHolder holder = ContainerCreator.lastUsedInventory.get(player);
-            if (holder != null && player.getOpenInventory() == holder.getInventory()) {
-                ContainerCreator.openContainer(player, holder.getContainerName());
-            }
-
+        String currentHotbar = HotbarCreator.currentHotbar.get(player);
+        if (currentHotbar != null) {
+            HotbarCreator.setHotbar(player, currentHotbar);
         }
+
+        ContainerHolder holder = ContainerCreator.lastUsedInventory.get(player);
+        if (holder != null && player.getOpenInventory() == holder.getInventory()) {
+            ContainerCreator.openContainer(player, holder.getContainerName());
+        }
+
+
     }
 }
