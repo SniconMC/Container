@@ -51,7 +51,7 @@ public class ContainerCommand extends Command {
             switch (actionString.toLowerCase()) {
                 case "reload", "r" -> {
                     ContainerManager.reloadContainers();
-                    commandSender.sendMessage(TextUtils.convertStringToComponent(List.of("<green>Reloaded Container!</green>")));
+                    commandSender.sendMessage(TextUtils.convertStringToComponent("<green>Reloaded Container!</green>"));
                 }
             }
         }, reloadArgument);

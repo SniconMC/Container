@@ -22,7 +22,7 @@ public class CreateInventory {
     public static Inventory build(ContainerConfig config, Player player) {
         ContainerInventorySettings inventorySettings = config.getInventorySettings();
 
-        Component displayName = TextUtils.convertStringToComponent(inventorySettings.getDisplayName());
+        Component displayName = TextUtils.convertStringListToComponent(inventorySettings.getDisplayName());
         InventoryType inventoryType = InventoryUtils.getInventoryType(inventorySettings.getRow());
         Integer inventorySize = inventorySettings.getSize();
 
@@ -57,8 +57,8 @@ public class CreateInventory {
                     .material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
                     .count(itemCount.getCurrent())
                     .maxStackSize(itemCount.getMax())
-                    .name(TextUtils.convertStringToComponent(itemDisplay.getName()))
-                    .lore(TextUtils.convertListStringToListComponent(itemDisplay.getLore()))
+                    .name(TextUtils.convertStringListToComponent(itemDisplay.getName()))
+                    .lore(TextUtils.convertStringListListToListComponent(itemDisplay.getLore()))
                     .glint(itemDisplay.isGlint())
                     .showToolTips(itemDisplay.isShow_tooltip())
                     .dyeColor(itemDisplay.getDye_color())
@@ -106,8 +106,8 @@ public class CreateInventory {
                     .material(MaterialUtils.convertToNamespaceIdMaterial(item.getId()))
                     .count(itemCount.getCurrent())
                     .maxStackSize(itemCount.getMax())
-                    .name(TextUtils.convertStringToComponent(itemDisplay.getName()))
-                    .lore(TextUtils.convertListStringToListComponent(itemDisplay.getLore()))
+                    .name(TextUtils.convertStringListToComponent(itemDisplay.getName()))
+                    .lore(TextUtils.convertStringListListToListComponent(itemDisplay.getLore()))
                     .glint(itemDisplay.isGlint())
                     .showToolTips(itemDisplay.isShow_tooltip())
                     .dyeColor(itemDisplay.getDye_color())
