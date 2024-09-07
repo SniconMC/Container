@@ -11,6 +11,13 @@ public class ContainerItemDisplay {
     private String dye_color;
     private boolean show_tooltip;
 
+    public ContainerItemDisplay(List<String> name, List<List<String>> lore, boolean glint, String dye_color, boolean show_tooltip) {
+        this.name = name;
+        this.lore = lore;
+        this.glint = glint;
+        this.dye_color = dye_color;
+        this.show_tooltip = show_tooltip;
+    }
 
     public boolean isShow_tooltip() {
         return show_tooltip;

@@ -4,18 +4,15 @@ public class ContainerItem {
 
     private int slot;
     private String id;
-    private String container_id;
     private ContainerItemCount count;
     private ContainerItemDisplay display;
     private ContainerItemSkin skin;
     private ContainerItemData data;
 
-    public String getContainerId() {
-        return container_id;
-    }
-
-    public void setContainerId(String container_id) {
-        this.container_id = container_id;
+    public ContainerItem(int slot, String id, int count) {
+        this.slot = slot;
+        this.id = id;
+        this.count = new ContainerItemCount(count, 64);
     }
 
     public int getSlot() {
@@ -54,10 +51,6 @@ public class ContainerItem {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setContainer_id(String container_id) {
-        this.container_id = container_id;
     }
 
     public void setCount(ContainerItemCount count) {
