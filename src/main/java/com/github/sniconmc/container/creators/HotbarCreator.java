@@ -27,7 +27,7 @@ public class HotbarCreator {
             return;
         }
 
-        String placeholderReplacedJson = PlaceholderReplacer.replacePlaceholders(player, data.get(hotbarName));
+        String placeholderReplacedJson = PlaceholderReplacer.replacePlaceholders(player,PlaceholderReplacer.replacePlaceholders(player, data.get(hotbarName)));
 
 
         try {

@@ -26,7 +26,7 @@ public class ContainerCreator {
             return;
         }
 
-        String placeholderReplacedJson = PlaceholderReplacer.replacePlaceholders(player, data.get(containerName));
+        String placeholderReplacedJson = PlaceholderReplacer.replacePlaceholders(player, PlaceholderReplacer.replacePlaceholders(player, data.get(containerName)));
 
 
         try {
